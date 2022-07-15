@@ -1,2 +1,3 @@
 /conf/adguardhome/work/*
 /conf/adguardhome/conf/AdGuardHome.yaml
+/conf/mosdns/mosdns.log
