@@ -1,10 +1,12 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'rufus-scheduler'
-require_relative './mosdns-cn'
+require_relative './download'
 
 
 scheduler = Rufus::Scheduler.singleton
+
+logger.info("cron job running!!!")
 
 scheduler.in '30s' do
   runner()
