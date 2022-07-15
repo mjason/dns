@@ -1,0 +1,27 @@
+version: '3'
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    restart: unless-stopped
+    volumes:
+      - ./conf/adguardhome/work:/opt/adguardhome/work
+      - ./conf/adguardhome/conf:/opt/adguardhome/conf
+    ports:
+      - 3000:3000
+      - 5335:5335
+    links:
+      - mosdns:mosdns
+
+  mosdns:
+    image: irinesistiana/mosdns
+    restart: unless-stopped
+    volumes:
+      - ./conf/mosdns:/etc/mosdns
+
+  cron:
+    image: mjason/geo_sync
+    restart: unless-stopped
+    environment:
+      - SAVE_PATH=/etc/mosdns
+    volumes:
+      - ./conf/mosdns:/etc/mosdns

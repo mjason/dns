@@ -1,0 +1,8 @@
+version: '3'
+services:
+  cron:
+    build: "."
+    environment:
+      - SAVE_PATH=/etc/mosdns
+    volumes:
+      - ../conf/mosdns:/etc/mosdns
