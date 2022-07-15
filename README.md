@@ -4,6 +4,8 @@
 2. 内置广告过滤
 
 ## start
+mkdir -p ./conf/adguardhome/work
+mkdir -p ./conf/adguardhome/conf
 docker-compose pull
 docker-compose up -d
 
